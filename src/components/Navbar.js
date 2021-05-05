@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import { useAuth0 } from '@auth0/auth0-react';
+import { GithubContext,GithubProvider } from '../context/context';
+
 
 const Navbar = () => {
-  return <h2>navbar component</h2>;
+  const Data = useContext(GithubContext);
+  console.log(Data);
+  return (<>
+  
+    <h2>navbar component</h2>
+    </>
+    );
 };
 
 const Wrapper = styled.nav`

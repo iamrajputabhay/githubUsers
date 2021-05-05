@@ -3,13 +3,50 @@ import styled from 'styled-components';
 import { GithubContext } from '../context/context';
 import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from './Charts';
 const Repos = () => {
-  return <h2>repos component</h2>;
+  const repoData = React.useContext(GithubContext);
+  const {repos,githubUser,followers} = repoData;
+  console.log(repos.language);
+  const chart = [
+    {
+      label: "CSS",
+      value: "60"
+    },
+    {
+      label: "JavaScript",
+      value: "260"
+    },
+    {
+      label: "HTML",
+      value: "180"
+    },
+    {
+      label: "React.js",
+      value: "150"
+    }
+    
+  ];
+  console.log(repoData);
+  return (
+    <section className="secction">
+      <Wrapper className="section-center">
+      <ExampleChart data={chart} className="example-chart"/>
+      </Wrapper>
+      </section>
+        
+    
+  )
 };
 
 const Wrapper = styled.div`
   display: grid;
   justify-items: center;
   gap: 2rem;
+
+  .example-chart {
+    margin-left:8em;
+    color:red;
+    background:blue;
+  }
   @media (min-width: 800px) {
     grid-template-columns: 1fr 1fr;
   }

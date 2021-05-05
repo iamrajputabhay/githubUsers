@@ -2,12 +2,37 @@ import React from 'react';
 import { GithubContext } from '../context/context';
 import styled from 'styled-components';
 import { MdBusiness, MdLocationOn, MdLink } from 'react-icons/md';
-const Card = () => {
-  return <h2>card component</h2>;
+const Card = (data) => {
+  const userData = React.useContext(GithubContext);
+  console.log(userData);
+  const {githubUser} = userData;
+  const {name, twitter_username,bio,avatar_url,blog, html_url,location,company} = githubUser;
+  console.log(userData);
+
+  return (
+    <Wrapper>
+      <header>
+        <img src={avatar_url} alt={name}/>
+        <div>
+          <h4>{name}</h4>
+          <p>@{twitter_username || "try_finding_me"}</p>
+        </div>
+        <a href={html_url}>Follow</a>
+      </header>
+      <p className="bio">{bio}</p>
+      <div className="links">
+        <a href={blog}><MdLink/>{blog}</a>
+        <a href={location}><MdLocationOn/>{location}</a>
+        <a htref={company}><MdBusiness/> {company}</a>
+      </div>
+    </Wrapper>
+  );
 };
 const Wrapper = styled.article`
   background: var(--clr-white);
   padding: 1.5rem 2rem;
+  margin-top:2rem;
+  margin:1em 8em;
   border-top-right-radius: var(--radius);
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);

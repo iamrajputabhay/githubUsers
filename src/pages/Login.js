@@ -3,7 +3,12 @@ import { useAuth0 } from '@auth0/auth0-react';
 import styled from 'styled-components';
 import loginImg from '../images/login-img.svg';
 const Login = () => {
-  return <h2>login page</h2>;
+  return (
+    <Wrapper>
+      <img className="login-img" src={loginImg} alt="login image"/>
+      <h2 className="user-name">just fill the credentials</h2>
+    </Wrapper>
+  );
 };
 const Wrapper = styled.section`
   min-height: 100vh;
@@ -14,11 +19,16 @@ const Wrapper = styled.section`
     max-width: 600px;
     text-align: center;
   }
-  img {
-    margin-bottom: 2rem;
+  .login-img {
+    margin-bottom:.1rem;
+    width:500px;
+    height:400px;
   }
-  h1 {
-    margin-bottom: 1.5rem;
+  .user-name {
+    margin-bottom:14rem;
   }
+  
+  
+  
 `;
 export default Login;

@@ -1,9 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
+import {GithubContext} from '../context/context';
 import Card from './Card';
 import Followers from './Followers';
+
 const User = () => {
-  return <h2>search component</h2>;
+  const data = useContext(GithubContext);
+  const {githubUser} = data;
+  console.log(data);
+  console.log("for fuck's sake")
+  return (<div>
+    <Card/>
+    <Followers/>
+  </div>
+  
+    )
+  ;
 };
 
 const Wrapper = styled.div`

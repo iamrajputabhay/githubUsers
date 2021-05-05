@@ -3,15 +3,40 @@ import { GithubContext } from '../context/context';
 import styled from 'styled-components';
 
 const Followers = () => {
-  return <h2>followers component</h2>;
+  const {followers} = React.useContext(GithubContext);
+console.log(followers);
+  const {login,id, followers_url} = followers;
+  return (
+    <Wrapper>
+      <div className="followers">
+{followers.map((follower,index) => {
+  const {avatar_url, html_url,login} = follower;
+return (
+<article key={index}>
+  <img src={avatar_url} alt={login}/>
+  <div>
+    <h4>{login}</h4>
+    <a href={html_url}> {html_url} </a>
+  </div>
+</article>
+)
+})}
+</div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.article`
   background: var(--clr-white);
+  display:grid;
+  margin-top:3rem;
+  margin:1em 8em;
   border-top-right-radius: var(--radius);
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
-  position: relative;
+   position: relative;
+  margin-top:3em;
+
 
   &::before {
     content: ' followers';
