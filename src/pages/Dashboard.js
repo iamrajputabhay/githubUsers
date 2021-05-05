@@ -9,7 +9,7 @@ const Dashboard = () => {
       <Navbar/>
       <Search/>
       {/* background: linear-gradient(90deg,#2cc7c0,#59d99d); */}
-      <Info/>
+      <Info/>  
       <User/>
       <Repos/>
       
