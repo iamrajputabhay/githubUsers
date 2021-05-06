@@ -7,6 +7,7 @@ import {GithubProvider} from './context/context';
 
 import { Dashboard, Login, PrivateRoute, AuthWrapper, Error } from './pages';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ClonedCard from './components/ClonedCard';
 
 
 function App() {
@@ -33,10 +34,15 @@ function App() {
       <Route path="/user">
       <GithubProvider />
       </Route>
+      
+      <Route path="/cloned" >
+      <ClonedCard />
+      </Route>
 
       <Route path="*">
       <Error />
       </Route>
+      
       
     </Switch>
       </Router>
